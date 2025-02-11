@@ -70,7 +70,7 @@ def on_hover(event):
 
 def on_leave(event):
     login_button.config(bg="#3A0052", fg="#8A2BE2", relief="solid")
-
+    
 login_button = tk.Button(frame, text="Play", bg="#3A0052", fg="#8A2BE2", font=("Arial", 12), bd=2, relief="solid", highlightthickness=2, highlightbackground="#8A2BE2", command=check_login)
 login_button.grid(row=2, columnspan=2, pady=20)
 
