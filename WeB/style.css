@@ -1,0 +1,110 @@
+/* styles.css */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: rgb(231, 231, 3);
+}
+
+/*header*/
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: beige;
+  color: #fff;
+  padding: 10px 20px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  position: relative;
+}
+
+.logo {
+  margin: 15px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+  color: #333;
+}
+
+.nav {
+  margin: 15px;
+  margin-left: auto;
+  display: flex;
+  gap: 10px;
+}
+
+/*button in logo*/
+.btn {
+  padding: 8px 15px;
+  font-size: 1rem;
+  color: #fff;
+  background-color: #555;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #777;
+}
+
+.btn-signup {
+  background-color: #007bff;
+}
+
+.btn-signup:hover {
+  background-color: #0056b3;
+}
+
+/*main*/
+main{
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(226, 167, 79);
+}
+
+.main{
+  display: flex;
+  width: 1300px;
+  flex-direction: column;
+  background-color: rgb(82, 79, 226);
+}
+
+/*footer*/
+footer{
+  display: flex;
+  background-color: #555;
+  color: aliceblue;
+}
+
+.we{
+  display: flex;
+  flex-direction: column;
+}
+
+/*ADD*/
+@media (max-width: 700px) {
+  /*logo*/
+  .logo {
+    position: static;
+    transform: none;
+    margin-right: auto;
+  }
+
+  .header {
+    justify-content: flex-start;
+  }
+}
+
+@media (min-width: 1300px) {
+  main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
