@@ -16,7 +16,7 @@ body {
   position: sticky;
   top: 0;
   z-index: 1000;
-  position: relative;
+  position: relative; 
 }
 
 .logo {
@@ -65,7 +65,7 @@ body {
 main{
   display: flex;
   flex-direction: column;
-  background-color: rgb(226, 167, 79);
+  background-color: beige;
 }
 
 .main{
@@ -73,6 +73,74 @@ main{
   width: 1300px;
   flex-direction: column;
   background-color: rgb(82, 79, 226);
+}
+
+/* Для удобства расположим все три спидометра в строку */
+.container {
+  display: flex;
+  gap: 60px; /* расстояние между ними */
+  padding: 20px;
+  justify-content: center;
+}
+
+/* Базовые стили для каждого "спидометра" */
+.circular-progress {
+  width: 100px;
+  height: 100px;
+  position: relative;
+  border-radius: 50%;
+
+  /* Расположение внутренностей по центру */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /*
+    Начальный градиент (дальше будет меняться через JS).
+    - По умолчанию всё серым (0deg..270deg) + прозрачный сектор (270..360).
+  */
+  background: conic-gradient(
+    #ccc 0deg,
+    #ccc 270deg,
+    transparent 270deg,
+    transparent 360deg
+  );
+
+  /*
+    Поворачиваем "кольцо" на -135°, чтобы
+    незакрашенная часть (90°) была внизу
+  */
+  transform: rotate(-135deg);
+  transform-origin: center;
+}
+
+/* Внутренний круг, чтобы «съесть» 60% диаметра (останется 40px на кольцо) */
+.circular-progress::before {
+  content: "";
+  position: absolute;
+  top: 20px;   /* (100 - 60) / 2 */
+  left: 20px;
+  width: 60px;
+  height: 60px;
+  background: #fff; /* цвет фона внутри круга */
+  border-radius: 50%;
+  z-index: 2;
+}
+
+/* Иконку и текст "выправляем" обратно на +135°, 
+   чтобы они не были наклонены вместе с кругом */
+.circular-progress .icon,
+.circular-progress .progress-text {
+  transform: rotate(135deg);
+  transform-origin: center;
+}
+
+/* Иконка в центре (50×50) */
+.circular-progress .icon {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  z-index: 3;
 }
 
 /*footer*/
